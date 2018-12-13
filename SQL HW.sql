@@ -119,7 +119,7 @@ FROM rental
 JOIN inventory ON rental.inventory_id = inventory.inventory_id
 JOIN film ON inventory.film_id = film.film_id
 GROUP BY film.title
-ORDER BY `Number of Rentals` DESC;
+ORDER BY `Rental Count` DESC;
 
 --7f.
 SELECT store.store_id, SUM(amount) AS 'Revenue'
@@ -156,6 +156,12 @@ JOIN rental ON (inventory.inventory_id=rental.inventory_id
 JOIN payment ON (rental.rental_id=payment.rental_id)
 GROUP BY category.name 
 ORDER BY payment.amount LIMIT 5;
+
+-- 8b. 
+SELECT * FROM genre_revenue;
+
+-- 8c. 
+DROP VIEW genre_revenue;
 
 
 
